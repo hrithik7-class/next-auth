@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
     varifyToken:String,
     varifyTokenExpiry:Date,
 
-})
+},{timestamps:true})
 
 // userSchema.pre("save",async function() {
 //     try {
@@ -50,4 +50,5 @@ const userSchema = new mongoose.Schema({
 // userSchema.methods.comparePassword=async function (password){
 
 // }
-export const User = mongoose.model("User",userSchema) || mongoose.models.users
+const User = mongoose.models.users || mongoose.model("users", userSchema);
+export default User;
